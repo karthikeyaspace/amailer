@@ -1,19 +1,19 @@
 import nodemailer from 'nodemailer';
-import { EmailOptions, ServiceConfig, EmailService } from '../types';
+import { EmailOptions, EmailService, ServiceConfig } from '../types';
 
 
 class NodeMailer implements EmailService {
     private transporter: nodemailer.Transporter;
 
     constructor(config: ServiceConfig) {
-        if(!config.smtp) 
+        if(!config.user || !config.pass) 
             throw new Error("SMTP configuration is missing");
 
         this.transporter = nodemailer.createTransport({
-            service: config.smtp.service,
+            service: config.service,
             auth: {
-                user: config.smtp.user,
-                pass: config.smtp.pass
+                user: config.user,
+                pass: config.pass
             }
         })
     }
@@ -25,6 +25,16 @@ class NodeMailer implements EmailService {
                 resolve(info);
             })
         })
+    }
+
+    sendEmails(options: EmailOptions): Promise<any> {
+        if(!Array.isArray(options.to)) 
+            throw new Error("To field should be an array");
+        return Promise.all(
+            options.to.map((to: string)=> {
+                return this.sendEmail({...options, to});
+            })
+        )
     }
 }
 

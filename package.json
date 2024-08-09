@@ -8,12 +8,19 @@
     "test": "jest",
     "prepublishOnly": "npm run build"
   },
-  "keywords": ["email", "mailing", "automation", "mailgun", "nodemailer"],
+  "keywords": [
+    "email",
+    "mailing",
+    "automation",
+    "mailgun",
+    "nodemailer"
+  ],
   "author": "Karthikeya Veruturi",
   "license": "MIT",
   "dependencies": {
     "@types/node": "^22.1.0",
     "@types/nodemailer": "^6.4.15",
+    "dotenv": "^16.4.5",
     "mailgun.js": "^10.2.3",
     "nodemailer": "^6.9.14",
     "ts-node": "^10.9.2",

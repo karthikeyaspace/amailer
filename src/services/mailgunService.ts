@@ -5,13 +5,12 @@ class MailgunService implements EmailService {
     private mailgun: any;
     private domain: string;
     constructor(config: ServiceConfig) {
-        if (!config.mailgun) throw new Error("Mailgun configuration is missing");
+        if (!config.apiKey || !config.domain) throw new Error("Mailgun configuration is missing");
 
         this.mailgun = new Mailgun(FormData);
-        this.mailgun = this.mailgun.client({username: 'api', key: config.mailgun.apiKey});
-        this.domain = config.mailgun.domain;
+        this.mailgun = this.mailgun.client({username: 'api', key: config.apiKey});
+        this.domain = config.domain;
     }
-
 
     sendEmail(options: EmailOptions): Promise<any> {
         return new Promise((resolve, reject)=>{
@@ -20,6 +19,16 @@ class MailgunService implements EmailService {
                 resolve(body);
             })
         })
+    }
+
+    sendEmails(options: EmailOptions): Promise<any> {
+        if(!Array.isArray(options.to)) 
+            throw new Error("To field should be an array");
+        return Promise.all(
+            options.to.map((to: string)=> {
+                return this.sendEmail({...options, to});
+            })
+        )
     }
 }
 
