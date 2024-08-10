@@ -3,14 +3,13 @@
   "version": "1.0.1",
   "description": "Automated mailer build on top of nodemailer, mailgun and sendgrid",
   "main": "dist/src/index.js",
-  
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/karthikeyaspace/amailer.git"
+    "url": "git+https://github.com/karthikeyaspace/amailer.git"
   },
   "keywords": [
     "email",
