@@ -5,7 +5,6 @@ interface EmailOptions {
   text?: string;
   html?: string;
   attachments?: any[];
-
 }
 
 
@@ -33,7 +32,7 @@ interface ServiceConfig {
 
 interface EmailService {
   sendEmail: (options: EmailOptions) => Promise<any>;
-  sendEmails?: (options: EmailOptions) => Promise<any>;
+  sendEmails: (options: EmailOptions) => Promise<any>;
 }
 
 export { EmailOptions, ServiceConfig, EmailService };

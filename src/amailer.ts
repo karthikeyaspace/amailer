@@ -1,4 +1,4 @@
-import { NodeMailer, MailgunService } from "./services";
+import { NodeMailer, MailgunService, SendGridService } from "./services";
 import { EmailOptions, ServiceConfig } from "./types";
 
 const amailer = async (options: any) => {
@@ -16,16 +16,13 @@ const amailer = async (options: any) => {
 
   switch (config.type) {
     case "smtp":
-      if(!config.user || !config.pass) throw new Error("User or pass is missing");
-      service = new NodeMailer(config);
+      service = new NodeMailer(config);          // user, pass
       break;
     case "sendgrid":
-      if(!config.apiKey) throw new Error("API key is missing");
-      service = null;
+      service = new SendGridService(config);     // apiKey
       break;
     case "mailgun":
-      if(!config.apiKey || !config.domain) throw new Error("API key or domain is missing");
-      service = new MailgunService(config);
+      service = new MailgunService(config);      // apiKey, domain
       break;
     default:
       throw new Error("Invalid service type");
