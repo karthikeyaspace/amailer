@@ -1,0 +1,7 @@
+**/* 
+!dist/**
+!index.js
+!LICENSE
+!package.json
+!README.md
+!index.d.ts
