@@ -88,4 +88,4 @@ options: An object with the following properties:
 `domain`: The domain for Mailgun.
 
 ### License
-This project is licensed under the MIT [LICENSE](https://github.com/karthikeyaspace/amailer/LICENSE) - see the LICENSE file for details. 
+This project is licensed under the MIT [LICENSE](https://github.com/karthikeyaspace/amailer/blob/main/LICENSE) - see the LICENSE file for details. 
