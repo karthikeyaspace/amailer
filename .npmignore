@@ -1,5 +1,5 @@
 **/* 
-!dist/**
+!dist/src
 !index.js
 !LICENSE
 !package.json

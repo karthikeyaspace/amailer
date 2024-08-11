@@ -1,6 +1,5 @@
-import { EmailOptions, ServiceConfig } from './dist/src/types';
 
-declare function amailer(options: EmailOptions & ServiceConfig): Promise<any>;
+declare function amailer(options: any): Promise<any>;
 
 export { amailer };
 export * from './dist/src/services';

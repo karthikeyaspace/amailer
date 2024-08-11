@@ -1,7 +1,8 @@
 import { NodeMailer, MailgunService, SendGridService } from "./services";
 import { EmailOptions, ServiceConfig } from "./types";
 
-const amailer = async (options: EmailOptions & ServiceConfig) => {
+
+const amailer = async (options: any) => {
   let service;
   if(!options.type) throw new Error("Service type is missing");
 
@@ -33,6 +34,8 @@ const amailer = async (options: EmailOptions & ServiceConfig) => {
   const emailoptions: EmailOptions = {
     from: options.from,
     to: options.to,
+    cc: options?.cc,
+    bcc: options?.bcc,
     subject: options.subject,
     text: options?.text,
     html: options?.html,

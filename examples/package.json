@@ -4,11 +4,13 @@
   "description": "",
   "main": "mailgun.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsc && node dist/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "amailer": "^1.0.1"
+    "@types/node": "^22.2.0",
+    "amailer": "^1.0.1",
+    "typescript": "^5.5.4"
   }
 }

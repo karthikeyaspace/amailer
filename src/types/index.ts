@@ -1,24 +1,16 @@
+import { Attachment } from "nodemailer/lib/mailer";
+
 interface EmailOptions {
   from: string;
   to: string | string[];
+  cc?: string;
+  bcc?: string;
   subject: string;
   text?: string;
   html?: string;
-  attachments?: any[];
+  attachments?: Attachment[];
 }
 
-
-/*
-  smtp - nodemailer
-  service, user, pass
-
-  sendgrid
-  apiKey
-
-  mailgun
-  apiKey, domain
-
-*/
 
 interface ServiceConfig {
   type: "smtp" | "sendgrid" | "mailgun";

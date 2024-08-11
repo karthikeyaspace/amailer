@@ -1,11 +1,12 @@
 {
   "name": "amailer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Automated mailer build on top of nodemailer, mailgun and sendgrid",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && ava"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,9 @@
     "dotenv": "^16.4.5",
     "mailgun.js": "^10.2.3",
     "nodemailer": "^6.9.14",
-    "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "ava": "^6.1.3"
   }
 }
