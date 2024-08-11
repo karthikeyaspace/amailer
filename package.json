@@ -1,6 +1,6 @@
 {
   "name": "amailer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Automated mailer build on top of nodemailer, mailgun and sendgrid",
   "main": "dist/src/index.js",
   "scripts": {

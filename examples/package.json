@@ -4,13 +4,13 @@
   "description": "",
   "main": "mailgun.js",
   "scripts": {
-    "dev": "tsc && node dist/index.js"
+    "dev": "tsc && node dist/sendMailWithAttachments.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^22.2.0",
-    "amailer": "^1.0.1",
+    "amailer": "^1.0.3",
     "typescript": "^5.5.4"
   }
 }
